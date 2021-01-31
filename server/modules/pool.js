@@ -18,7 +18,7 @@ if (process.env.DATABASE_URL) {
 } else {
   // If we're not on heroku, configure PG to use our local database
   config = {
-    host: 'local',
+    host: 'localhost',
     port: 5432,
     database: 'photo-gallery', // CHANGE THIS LINE to match your local database name!
   };

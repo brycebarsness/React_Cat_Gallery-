@@ -7,7 +7,7 @@ const pool = require('../modules/pool');
 
 // DO NOT MODIFY THIS FILE FOR BASE MODE
 
-/*router.get('/', (req, res) => {
+router.get('/', (req, res) => {
     pool.query(`
     SELECT * FROM "images" ORDER BY "id";
     `).then(
@@ -19,13 +19,13 @@ const pool = require('../modules/pool');
             console.log('error with get route', error);
         }
     )
-});*/
+});
 
 
 // GET Route
-router.get('/', (req, res) => {
-    res.send(galleryItems);
-}); // END GET Route*/
+//router.get('/', (req, res) => {
+    //res.send(galleryItems);
+//}); // END GET Route*/
 
 // PUT Route
 router.put('/like/:id', (req, res) => {

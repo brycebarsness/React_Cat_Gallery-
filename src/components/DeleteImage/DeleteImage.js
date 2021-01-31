@@ -6,9 +6,9 @@ import './DeleteImage.css';
 
 
 class DeleteImage extends Component {
-    //function to perform the delete request to server and then reload the page
+ 
     deletePhoto = () => {
-        //get the id of the photo
+        
         const idToDelete = this.props.id
         axios({
             method: 'DELETE',
@@ -24,7 +24,7 @@ class DeleteImage extends Component {
     render() {
         return(
             <>
-                {/* button with click event listener to trigger the delete of the photo */}
+
                 <Button  variant="contained" color="secondary"  className = "deleteButton" onClick={this.deletePhoto}>
                     Delete
                     {/* <DeleteIcon /> */}

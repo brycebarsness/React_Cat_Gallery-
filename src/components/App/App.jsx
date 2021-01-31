@@ -5,9 +5,9 @@ import GalleryList from '../GalleryList/GalleryList';
 import InputForm from '../InputForm/InputForm';
 //import Grid from '@material-ui/core/Grid';
 
-class App extends Component {
+class App extends Component {   //let [photoList, setPhotoList] = useState('');
   state = ({
-    photoList: [],
+    photoList: [],  
   });
 
   loadImage = () => {
@@ -18,7 +18,7 @@ class App extends Component {
     }).then(
       response => {
         console.log(response.data);
-          this.setState({
+          this.setState({// setPhotoList(response.data);
           photoList: response.data
         })
       })
@@ -29,7 +29,7 @@ class App extends Component {
       }
     )
   }
-  componentDidMount() {
+  componentDidMount() { //useEffect(() => { loadImage()}; [] ) ;
     this.loadImage();
   }
   
@@ -45,13 +45,13 @@ render() {
         
         <div>
      
-        <InputForm loadImage={this.loadImage} />
-                 
+        <InputForm loadImage={this.loadImage} />    
+                {/*loadImage= {loadImage} */} 
 
        
         
         <GalleryList photoList={this.state.photoList} loadImage = {this.loadImage} /> 
-      
+                    {/* same as above*/}
     
       </div>
   </div>

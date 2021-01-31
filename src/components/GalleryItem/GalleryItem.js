@@ -5,7 +5,7 @@ import axios from 'axios';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 
-class GalleryItem extends Component {
+class GalleryItem extends Component { /* function GalleryItem, const [showPhoto, setShowPhoto]= useState('true') */
     //create a showPhoto state property to indicate if it displays the photo (value = true)
     //or the description (value = false) on the DOM
     state = {
