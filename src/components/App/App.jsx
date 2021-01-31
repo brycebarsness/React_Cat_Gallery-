@@ -1,16 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import GalleryList from '../GalleryList/GalleryList';
 import InputForm from '../InputForm/InputForm';
 //import Grid from '@material-ui/core/Grid';
 
-class App extends Component {   //let [photoList, setPhotoList] = useState('');
-  state = ({
-    photoList: [],  
-  });
+function App(){   
+  
+let [photoList, setPhotoList] = useState([]);
+ //photoList.map(...)
 
-  loadImage = () => {
+  const loadImage = () => {
     console.log('in loadImage');
     axios ({
       method: 'GET',
@@ -18,10 +19,10 @@ class App extends Component {   //let [photoList, setPhotoList] = useState('');
     }).then(
       response => {
         console.log(response.data);
-          this.setState({// setPhotoList(response.data);
-          photoList: response.data
+          setPhotoList(response.data);
+        
         })
-      })
+      
       .catch(
       error => {
         console.log('error with axios get route', error );
@@ -29,13 +30,13 @@ class App extends Component {   //let [photoList, setPhotoList] = useState('');
       }
     )
   }
-  componentDidMount() { //useEffect(() => { loadImage()}; [] ) ;
-    this.loadImage();
-  }
+useEffect(() => { 
+  loadImage(); 
+},[]) ;
   
   
 
-render() {
+
     return (
       <div className="App">
         <header className="App-header">
@@ -45,19 +46,19 @@ render() {
         
         <div>
      
-        <InputForm loadImage={this.loadImage} />    
+        <InputForm loadImage={loadImage} />    
                 {/*loadImage= {loadImage} */} 
 
        
         
-        <GalleryList photoList={this.state.photoList} loadImage = {this.loadImage} /> 
+        <GalleryList photoList={photoList} loadImage = {loadImage} /> 
                     {/* same as above*/}
     
       </div>
   </div>
    
     );
-    } 
+     
   }
 
 export default App;

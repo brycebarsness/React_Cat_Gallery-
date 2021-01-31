@@ -1,38 +1,37 @@
-import React, {Component} from 'react';
 import axios from 'axios';
 import Button from '@material-ui/core/Button';
 import './DeleteImage.css';
 
 
 
-class DeleteImage extends Component {
+function DeleteImage({id, loadImage})  {
  
-    deletePhoto = () => {
+   const deletePhoto = () => {
         
-        const idToDelete = this.props.id
+        const idToDelete = id
         axios({
             method: 'DELETE',
             url: '/gallery/delete/' + idToDelete,
         }).then(
             () => {
-                this.props.loadImage();
+                loadImage();
             }
-        )
-    }
+        )};
+    
 
 
-    render() {
+    
         return(
             <>
 
-                <Button  variant="contained" color="secondary"  className = "deleteButton" onClick={this.deletePhoto}>
+                <Button  variant="contained" color="secondary"  className = "deleteButton" onClick={deletePhoto}>
                     Delete
                     {/* <DeleteIcon /> */}
                 </Button>
             </>
 
         )
-    }
+    
 }
 
 export default DeleteImage;

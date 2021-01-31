@@ -1,50 +1,46 @@
-import React, {Component} from 'react';
+import { useState} from 'react';
 import axios from 'axios';
 import './InputForm.css';
 import Button from '@material-ui/core/Button';
 
 
-class InputForm extends Component {
+function InputForm({loadImage}) {
 
-    state = {
-        url: '',
-        description: '',
+    
+   
+    const [url, setUrl]= useState('');
+    const [description, setDescription]= useState('');
         //initialize the counter => to be used as id for new photo
         // counter: 10,
-    }
+    
     
     //function to capture the input and change the value in the state respectively
-    handleChangeFor =(propertyName) => (event) => {
-        this.setState({
-            [propertyName]: event.target.value,
-        })
-    }
+   // handleChangeFor = (event) => {
+      //  setState({
+         //   [propertyName]: event.target.value,
+      //  })
+   // }
 
     //function to perform a post request to the data file on server 
     //and then reload the page
-    handleSubmit = () => {
+    const newImage = (e) => {
+      e.preventDefault();
         axios({
             method: 'POST',
             url: '/gallery',
             //pass the data obj with the information input
             data: {
                 // id: this.state.counter,
-                url: this.state.url,
-                description: this.state.description,
-                likes: 0,
+                url: url,
+                description: description,
             }
         }).then(
             () => {
-                //counter + 1
-                this.setState({
-                    counter: this.state.counter + 1,
-                    //empty input fields
-                    url: '',
-                    description: '',
-                })
-
-                //reload the page
-                this.props.loadImage();
+              
+                    setUrl('');
+                    setDescription('');
+                
+                    loadImage();
 
             }
         ).catch(
@@ -54,16 +50,16 @@ class InputForm extends Component {
         )
     }
     
-    render() {
+    
 
         return (
-            <div className="inputForm" >
-                <input onChange={this.handleChangeFor('url')} value={this.state.url} id="urlInput" placeholder="Enter image url"></input>
-                <input onChange={this.handleChangeFor('description')} value={this.state.description} id="descriptionInput" placeholder="Enter image description"></input>
-                <Button onClick={this.handleSubmit} id="submitButton">Submit Image</Button>
-            </div>
+            <form onSubmit={newImage} >
+                <input onChange={(e) => setUrl (e.target.value)} value={url} id="urlInput" placeholder="Enter image url"></input>
+                <input onChange={(e) => setDescription(e.target.value)} value={description} id="descriptionInput" placeholder="Enter image description"></input>
+                <Button type="submit">Submit Image</Button>
+            </form>
         )
-    }
+    
 }
 
 export default InputForm;
