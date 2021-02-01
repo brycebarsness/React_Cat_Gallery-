@@ -49,11 +49,11 @@ useEffect(() => {
         <InputForm loadImage={loadImage} />    
                 {/*loadImage= {loadImage} */} 
 
-       
+       <div id="display">
         
         <GalleryList photoList={photoList} loadImage = {loadImage} /> 
                     {/* same as above*/}
-    
+        </div>
       </div>
   </div>
    

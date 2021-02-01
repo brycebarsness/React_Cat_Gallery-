@@ -3,13 +3,20 @@
 }
 
 .App-header {
-  background-color: #222;
+  background-color: #001e38;
   padding: 1em;
+  height: 70px;
   color: white;
   margin-bottom: 1em;
+   
 }
 
 .App-title {
   font-size: 1.5em;
 }
-
+#display {
+    display: inline-block;
+  
+    /* max-width: 50%; */
+    margin: 10px auto;
+  }

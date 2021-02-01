@@ -56,7 +56,7 @@ function InputForm({loadImage}) {
             <form onSubmit={newImage} >
                 <input onChange={(e) => setUrl (e.target.value)} value={url} id="urlInput" placeholder="Enter image url"></input>
                 <input onChange={(e) => setDescription(e.target.value)} value={description} id="descriptionInput" placeholder="Enter image description"></input>
-                <Button type="submit">Submit Image</Button>
+                <Button id="submitButton" type="submit">Submit Image</Button>
             </form>
         )
     

@@ -46,22 +46,20 @@ function GalleryItem({ loadImage, photo }) { /* function GalleryItem, const [sho
                                 src={photo.url}
                                 alt={photo.description} />
                             :
-                  
-                            <div height="200px" width="200px">
-       
+                                <div height="200px" width="200px">
                                 <p onClick={handleClickPhoto}>{photo.description}</p>
-                            </div>
-                        }
+                                </div>
+                            }
                         <br />
          
-                        <Button variant="contained" color="primary" className="likeButton" onClick={handleClickButton} id={photo.id}>Love it!</Button>
-                        <DeleteImage id={photo.id} loadImage={loadImage} />
+                        <Button variant="contained" className="likeButton" onClick={handleClickButton} id={photo.id}>Love it!</Button>
+                        <DeleteImage class="deleteButton" id={photo.id} loadImage={loadImage} />
                         <div>
                           
                             {photo.likes === 0 ?
-                                <p className="numLikes">No people love this :(</p>
+                                <p className="numLikes">No One Loves This Yet </p>
                                 :
-                                <p className="numLikes">{photo.likes} people like this!</p>}
+                                <p className="numLikes">{photo.likes} People Love This!</p>}
                         </div>
                     </Grid>
                 </Grid>
