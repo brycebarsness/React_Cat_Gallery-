@@ -10,16 +10,9 @@ function InputForm({loadImage}) {
    
     const [url, setUrl]= useState('');
     const [description, setDescription]= useState('');
-        //initialize the counter => to be used as id for new photo
-        // counter: 10,
-    
-    
+       
     //function to capture the input and change the value in the state respectively
-   // handleChangeFor = (event) => {
-      //  setState({
-         //   [propertyName]: event.target.value,
-      //  })
-   // }
+  
 
     //function to perform a post request to the data file on server 
     //and then reload the page
@@ -30,16 +23,16 @@ function InputForm({loadImage}) {
             url: '/gallery',
             //pass the data obj with the information input
             data: {
-                // id: this.state.counter,
+                
                 url: url,
                 description: description,
             }
         }).then(
-            () => {
+            () => {//empty input fields
               
                     setUrl('');
                     setDescription('');
-                
+                    //and then reload the page
                     loadImage();
 
             }

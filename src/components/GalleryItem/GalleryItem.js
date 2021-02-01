@@ -14,7 +14,7 @@ function GalleryItem({ loadImage, photo }) { /* function GalleryItem, const [sho
    const handleClickPhoto = () => {
         setShowPhoto(!showPhoto);
     }
-
+//function to update the # of likes in the data file on server
   const  handleClickButton = () => {
         axios({
             method: 'PUT',
@@ -28,7 +28,8 @@ function GalleryItem({ loadImage, photo }) { /* function GalleryItem, const [sho
             error => {
                 console.log('error with axios put route', error);
             }
-        )
+        )//show photo in case of truthy
+        //attach onClick event listener, handleClickButton
     }
 
     
@@ -36,7 +37,7 @@ function GalleryItem({ loadImage, photo }) { /* function GalleryItem, const [sho
             <div className="individualPhoto">
                 <Grid container >
                     <Grid item xs={12}>
-       
+                            {/*show photo in case of truthy*/}
                         {showPhoto ?
    
                             <img 
@@ -45,7 +46,7 @@ function GalleryItem({ loadImage, photo }) { /* function GalleryItem, const [sho
                                 key={photo.id}
                                 src={photo.url}
                                 alt={photo.description} />
-                            :
+                            :        //show description in case of falsy
                                 <div height="200px" width="200px">
                                 <p onClick={handleClickPhoto}>{photo.description}</p>
                                 </div>
@@ -55,7 +56,8 @@ function GalleryItem({ loadImage, photo }) { /* function GalleryItem, const [sho
                         <Button variant="contained" className="likeButton" onClick={handleClickButton} id={photo.id}>Love it!</Button>
                         <DeleteImage class="deleteButton" id={photo.id} loadImage={loadImage} />
                         <div>
-                          
+                          {/* ternary operator to display different sentences based on the value retrieved
+                            from the photo props */}
                             {photo.likes === 0 ?
                                 <p className="numLikes">No One Loves This Yet </p>
                                 :

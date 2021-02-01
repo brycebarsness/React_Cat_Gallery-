@@ -5,9 +5,9 @@ import './DeleteImage.css';
 
 
 function DeleteImage({id, loadImage})  {
- 
+  //function to perform the delete request to server and then reload the page
    const deletePhoto = () => {
-        
+          //get the id of the photo
         const idToDelete = id
         axios({
             method: 'DELETE',
@@ -24,9 +24,9 @@ function DeleteImage({id, loadImage})  {
         return(
             <>
 
-                <Button  variant="contained" color="secondary"  className = "deleteButton" onClick={deletePhoto}>
+                <Button  variant="contained" color="default"  className = "deleteButton" onClick={deletePhoto}>
                     Delete
-                    {/* <DeleteIcon /> */}
+            
                 </Button>
             </>
 
