@@ -1,9 +1,27 @@
 # Project Name
 
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
+FEATURE
+With this app, user will be able to:
 
-## Description
+-   Add new pictures by submitting url and         description
+-   Like the photos displayed
+-   See the total times users have clicked like on the image
+-   Click on the photo to see discription
+-   Delete the image from the DOM and the database by clicking the delete button
+        
 
-Your project description goes here. What problem did you solve? How did you solve it?
+DATABASE SETUP
+-Create a new database with the name photo-gallery
+-Run sql from the database file
 
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
+INSTALL AND RUN
+-npm install
+-npm run server
+-cmd +t
+-npm run client 
+
+BUILT WITH
+-React
+-Node.js 
+-Express 
+-PostgreSQL

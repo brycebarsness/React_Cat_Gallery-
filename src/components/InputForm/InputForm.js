@@ -11,11 +11,10 @@ function InputForm({loadImage}) {
     const [url, setUrl]= useState('');
     const [description, setDescription]= useState('');
        
-    //function to capture the input and change the value in the state respectively
+    //two sets of inputs for useState, first variable is the value, second variable is the function to change value
   
 
     //function to perform a post request to the data file on server 
-    //and then reload the page
     const newImage = (e) => {
       e.preventDefault();
         axios({

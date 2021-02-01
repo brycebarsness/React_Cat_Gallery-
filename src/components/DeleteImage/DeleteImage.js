@@ -5,9 +5,9 @@ import './DeleteImage.css';
 
 
 function DeleteImage({id, loadImage})  {
-  //function to perform the delete request to server and then reload the page
+  //function to delete, sent to server, after... reload the page
    const deletePhoto = () => {
-          //get the id of the photo
+          //get id of photo
         const idToDelete = id
         axios({
             method: 'DELETE',

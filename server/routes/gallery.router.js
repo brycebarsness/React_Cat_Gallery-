@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
         }
     ).catch(
         error => {
-            console.log('error with get route', error);
+            console.log('get route error', error);
         }
     )
 });
@@ -38,7 +38,7 @@ router.put('/like/:id', (req, res) => {
         }
     ).catch(
         error => {
-            console.log('error with put route', error);
+            console.log('put route error', error);
         }
     )
     
@@ -59,11 +59,10 @@ router.post('/', (req, res) => {
         }
     ).catch(
         error => {
-            console.log('error with axios post route', error);
+            console.log('post route error', error);
         }
     )
-    //below is the old code without database
-    // galleryItems.push(newItem);
+
 })
 
 //DELETE Route
@@ -80,17 +79,7 @@ router.delete('/delete/:id', (req, res) => {
             console.log('error with delete route', error);
         }
     )
-    //below is the old code without database
-    // //initialize the index value
-    // let index = 0;
-    // //loop through to get the index of the photo to be deleted
-    // galleryItems.forEach(photo => {
-    //     if(photo.id ==  idToDelete) { //idToDelete is string, photo.id is number
-    //         index = galleryItems.indexOf(photo);
-    //     }
-    // })
-    // //delete the photo from the array
-    // galleryItems.splice(index, 1);
+  
 })
 
 

@@ -11,7 +11,7 @@ function GalleryList({photoList, loadImage}) {
    
     return(
             <div className="allPhotos">
-                 {/* get each individual photo from the list and pass it to GalleryItem Component as a prop */}
+                 {/* pass each photo from the list to GalleryItem Component as prop */}
                 {/*photolsit.map/ loadImage={loadImage}*/}
                         {photoList.map(photo => 
                         <GalleryItem photo={photo} key={photo.id} loadImage = {loadImage}/>

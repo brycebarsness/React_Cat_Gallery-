@@ -37,7 +37,7 @@ function GalleryItem({ loadImage, photo }) { /* function GalleryItem, const [sho
             <div className="individualPhoto">
                 <Grid container >
                     <Grid item xs={12}>
-                            {/*show photo in case of truthy*/}
+                            {/*if true, show photo*/}
                         {showPhoto ?
    
                             <img 
@@ -46,7 +46,7 @@ function GalleryItem({ loadImage, photo }) { /* function GalleryItem, const [sho
                                 key={photo.id}
                                 src={photo.url}
                                 alt={photo.description} />
-                            :        //show description in case of falsy
+                            :        //if false, display description
                                 <div height="200px" width="200px">
                                 <p onClick={handleClickPhoto}>{photo.description}</p>
                                 </div>
@@ -56,8 +56,8 @@ function GalleryItem({ loadImage, photo }) { /* function GalleryItem, const [sho
                         <Button variant="contained" className="likeButton" onClick={handleClickButton} id={photo.id}>Love it!</Button>
                         <DeleteImage class="deleteButton" id={photo.id} loadImage={loadImage} />
                         <div>
-                          {/* ternary operator to display different sentences based on the value retrieved
-                            from the photo props */}
+                          {/* ternary operator to show different outputs based on input
+                            from props/ photo */}
                             {photo.likes === 0 ?
                                 <p className="numLikes">No One Loves This Yet </p>
                                 :
