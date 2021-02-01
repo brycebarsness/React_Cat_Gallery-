@@ -9,8 +9,9 @@ import InputForm from '../InputForm/InputForm';
 function App(){   
   
 let [photoList, setPhotoList] = useState([]);
- //photoList.map(...)
-
+ //two variable for useState. first is the value, second is the function to change it.
+ //function for get request 
+  //get .data from /gallery and database and store it on the dom 
   const loadImage = () => {
     console.log('in loadImage');
     axios ({
@@ -20,7 +21,7 @@ let [photoList, setPhotoList] = useState([]);
       response => {
         console.log(response.data);
           setPhotoList(response.data);
-        
+        //use function to set photoList with the response (must be .data)
         })
       
       .catch(
